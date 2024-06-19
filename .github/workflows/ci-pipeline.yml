@@ -179,7 +179,7 @@ jobs:
           echo "All security gates passed"
 
   build:
-    needs: test
+    needs: [test, security_gate]
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
