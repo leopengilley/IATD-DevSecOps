@@ -179,7 +179,7 @@ jobs:
           echo "All security gates passed"
 
   build:
-    needs: test
+    needs: [test, security-gate]
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
@@ -198,7 +198,7 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/devops-labs:latest  
 
   submit_reports:
-    needs: [test, sonarqube, dast, build]
+    needs: [test, sonarqube, dast]
     if: true
     runs-on: ubuntu-latest
     steps:
