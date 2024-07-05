@@ -201,9 +201,9 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v5
         with:
+          push: true
           sbom: true
           provenance: true
-          push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/devops-labs:latest
 
       - name: Install Cosign
