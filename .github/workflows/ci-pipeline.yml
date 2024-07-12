@@ -220,6 +220,8 @@ jobs:
     if: true
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
